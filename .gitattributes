@@ -1,0 +1,27 @@
+# Set the default line ending to LF (Unix-style)
+* text eol=lf
+
+# Explicitly specify line endings for specific file types
+*.txt text eol=lf
+*.md text eol=lf
+*.sh text eol=lf
+*.py text eol=lf
+
+# Set the line ending to CRLF (Windows-style) for specific file types
+*.bat text eol=crlf
+*.cmd text eol=crlf
+*.ps1 text eol=crlf
+*.csv text eol=crlf
+
+# NOTE: Disable EOL conversions
+* -text
+
+# Ignore whitespace changes
+*.txt -diff
+*.md -diff
+*.sh -diff
+*.py -diff
+*.bat -diff
+*.cmd -diff
+*.ps1 -diff
+*.csv -diff

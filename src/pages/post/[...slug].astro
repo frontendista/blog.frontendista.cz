@@ -1,0 +1,17 @@
+---
+export function getStaticPaths() {
+  return [
+    {params: {slug: 'clifford'}},
+    {params: {slug: 'rover'}},
+    {params: {slug: 'spot'}},
+  ];
+}	
+
+import { getCollection } from 'astro:content';
+
+const post = await getCollection('publicPosts')
+
+console.log(post);
+---
+
+<h1>Hello</h1>
