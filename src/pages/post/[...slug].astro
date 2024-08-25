@@ -1,17 +1,22 @@
 ---
-export function getStaticPaths() {
-	return [
-		{ params: { slug: "clifford" } },
-		{ params: { slug: "rover" } },
-		{ params: { slug: "spot" } },
-	];
+import { getEntry, getCollection, render } from "astro:content";
+
+export async function getStaticPaths() {
+	const posts = await getCollection("publicPosts");
+
+	return posts.map(post => {
+		return {
+			params: { slug: post.id },
+		};
+	});
 }
 
-import { getCollection } from "astro:content";
+const entry = await getEntry("publicPosts", Astro.params.slug);
 
-const post = await getCollection("publicPosts");
-
-console.log(post);
+const { title } = entry.data;
+const { Content } = await render(entry);
 ---
 
-<h1>Hello</h1>
+<h1>{title}</h1>
+
+<Content />
