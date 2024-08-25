@@ -7,7 +7,8 @@
 		"start": "astro dev",
 		"build": "astro check && astro build",
 		"preview": "astro preview",
-		"astro": "astro"
+		"astro": "astro",
+		"lint": "eslint"
 	},
 	"dependencies": {
 		"@astrojs/check": "^0.9.3",
@@ -19,6 +20,12 @@
 	},
 	"devDependencies": {
 		"@sveltejs/vite-plugin-svelte": "4.0.0-next.6",
+		"@types/eslint": "^9.6.0",
+		"@types/eslint-plugin-jsx-a11y": "^6.9.0",
+		"@typescript-eslint/parser": "^8.2.0",
+		"eslint": "^9.9.1",
+		"eslint-plugin-astro": "^1.2.3",
+		"eslint-plugin-jsx-a11y": "^6.9.0",
 		"prettier": "^3.3.3",
 		"prettier-plugin-astro": "^0.14.1"
 	},
