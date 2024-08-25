@@ -3,9 +3,9 @@ import mdx from "@astrojs/mdx";
 
 // https://astro.build/config
 export default defineConfig({
-  experimental: {
-    contentLayer: true,
-    contentIntellisense: true
-  },
-  integrations: [mdx()]
+	experimental: {
+		contentLayer: true,
+		contentIntellisense: true,
+	},
+	integrations: [mdx()],
 });

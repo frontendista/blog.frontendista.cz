@@ -1,15 +1,15 @@
 ---
 export function getStaticPaths() {
-  return [
-    {params: {slug: 'clifford'}},
-    {params: {slug: 'rover'}},
-    {params: {slug: 'spot'}},
-  ];
-}	
+	return [
+		{ params: { slug: "clifford" } },
+		{ params: { slug: "rover" } },
+		{ params: { slug: "spot" } },
+	];
+}
 
-import { getCollection } from 'astro:content';
+import { getCollection } from "astro:content";
 
-const post = await getCollection('publicPosts')
+const post = await getCollection("publicPosts");
 
 console.log(post);
 ---
