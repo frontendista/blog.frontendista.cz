@@ -12,11 +12,19 @@
 	"dependencies": {
 		"@astrojs/check": "^0.9.3",
 		"@astrojs/mdx": "^3.1.4",
+		"@astrojs/svelte": "^5.7.0",
 		"astro": "^4.14.5",
+		"svelte": "5.0.0-next.238",
 		"typescript": "^5.5.4"
 	},
 	"devDependencies": {
+		"@sveltejs/vite-plugin-svelte": "4.0.0-next.6",
 		"prettier": "^3.3.3",
 		"prettier-plugin-astro": "^0.14.1"
+	},
+	"pnpm": {
+		"overrides": {
+			"@sveltejs/vite-plugin-svelte": "^4.0.0-next.6"
+		}
 	}
 }
