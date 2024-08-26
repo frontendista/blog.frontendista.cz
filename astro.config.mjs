@@ -1,7 +1,8 @@
 import { defineConfig } from "astro/config";
-import mdx from "@astrojs/mdx";
 
+import mdx from "@astrojs/mdx";
 import svelte from "@astrojs/svelte";
+import tailwind from "@astrojs/tailwind";
 
 // https://astro.build/config
 export default defineConfig({
@@ -9,5 +10,5 @@ export default defineConfig({
 		contentLayer: true,
 		contentIntellisense: true,
 	},
-	integrations: [mdx(), svelte()],
+	integrations: [mdx(), svelte(), tailwind()],
 });
