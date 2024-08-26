@@ -1,17 +1,12 @@
 ---
-import Test from "../components/test.svelte";
+import BaseLayout from "../components/layout/base-layout.astro";
+
+import { AstroSeo as AstroSEO } from "@astrolib/seo";
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-		<Test client:load />
-	</body>
-</html>
+<AstroSEO
+	title="Simple Usage Example"
+	description="A short description goes here."
+/>
+
+<BaseLayout>Hello, World!</BaseLayout>

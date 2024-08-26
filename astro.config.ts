@@ -14,6 +14,11 @@ export default defineConfig({
 		contentLayer: true,
 		contentIntellisense: true,
 	},
+	trailingSlash: "never",
+	build: {
+		format: "file",
+		assets: "assets",
+	},
 	vite: {
 		build: {
 			assetsInlineLimit: 0,
