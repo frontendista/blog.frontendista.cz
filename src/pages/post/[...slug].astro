@@ -1,7 +1,9 @@
 ---
 import { getEntry, getCollection, render } from "astro:content";
 
-export async function getStaticPaths() {
+import type { GetStaticPaths } from "astro";
+
+export const getStaticPaths = (async () => {
 	const posts = await getCollection("publicPosts");
 
 	return posts.map(post => {
@@ -9,7 +11,7 @@ export async function getStaticPaths() {
 			params: { slug: post.id },
 		};
 	});
-}
+}) satisfies GetStaticPaths;
 
 const entry = await getEntry("publicPosts", Astro.params.slug);
 
