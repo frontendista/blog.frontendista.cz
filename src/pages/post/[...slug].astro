@@ -1,5 +1,8 @@
 ---
 import { getEntry, getCollection, render } from "astro:content";
+import { AstroSeo as AstroSEO } from "@astrolib/seo";
+
+import PostLayout from "@/component/layout/post-layout.astro";
 
 import type { GetStaticPaths } from "astro";
 
@@ -19,6 +22,9 @@ const { title } = entry.data;
 const { Content } = await render(entry);
 ---
 
-<h1>{title}</h1>
+<AstroSEO {title} />
 
-<Content />
+<PostLayout>
+	<h1>{title}</h1>
+	<Content />
+</PostLayout>

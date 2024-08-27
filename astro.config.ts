@@ -4,7 +4,7 @@ import mdx from "@astrojs/mdx";
 import svelte from "@astrojs/svelte";
 import tailwind from "@astrojs/tailwind";
 
-import blist from "browserslist-to-esbuild"
+import blist from "browserslist-to-esbuild";
 
 import { browserslist } from "./package.json";
 
