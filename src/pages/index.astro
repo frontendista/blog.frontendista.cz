@@ -1,12 +1,17 @@
 ---
-import BaseLayout from "@/component/layout/base-layout.astro";
+import Hero from "@/components/hero.astro";
+import BaseLayout from "@/components/layout/base-layout.astro";
 
 import { AstroSeo as AstroSEO } from "@astrolib/seo";
 ---
 
 <AstroSEO
-	title="Simple Usage Example"
+	title="Frontendista.cz — Blog"
 	description="A short description goes here."
 />
 
-<BaseLayout>Hello, World!</BaseLayout>
+<BaseLayout>
+	<header class="min-h-[100svh] flex items-center justify-center max-w-[120rem] flex-col mx-auto">
+		<Hero />
+	</header>
+</BaseLayout>

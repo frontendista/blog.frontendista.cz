@@ -37,5 +37,11 @@ export default defineConfig({
 		host: true,
 		open: true,
 	},
-	integrations: [mdx(), svelte(), tailwind()],
+	integrations: [
+		mdx(),
+		svelte(),
+		tailwind({
+			applyBaseStyles: false,
+		}),
+	],
 });
