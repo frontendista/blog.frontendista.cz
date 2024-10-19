@@ -1,3 +1,3 @@
-# blog.frontendista.cz
+# Blog
 
 Personal blog
