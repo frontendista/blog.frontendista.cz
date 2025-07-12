@@ -1,7 +1,7 @@
 {
 	"private": true,
 	"type": "module",
-	"name": "blog.frontendista.cz",
+	"name": "astro-template-pavel-susicky",
 	"scripts": {
 		"dev": "astro dev",
 		"build": "astro check && astro build",
