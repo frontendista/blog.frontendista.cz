@@ -1,7 +1,12 @@
 ---
 import Layout from "@/components/layout.astro";
+import { SEO } from "astro-seo";
+import { getLocaleStaticPaths } from "src/utils/i18n";
+
+export const getStaticPaths = getLocaleStaticPaths;
 ---
 
 <Layout>
+	<SEO title="TEST" slot="head" />
 	<h1>Test</h1>
 </Layout>

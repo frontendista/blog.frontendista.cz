@@ -3,7 +3,7 @@ import tailwindcss from "@tailwindcss/vite";
 import compress from "astro-compress";
 import { defineConfig } from 'astro/config';
 import { consola } from "consola";
-import { PORTS, SITES, SUPPORTED_ENVIRONMENTS } from './config';
+import { PORTS, SITES, SUPPORTED_ENVIRONMENTS, locales, localesCodes } from './config';
 
 const currentEnvironment = process.env.NODE_ENV as typeof SUPPORTED_ENVIRONMENTS[number];
 
@@ -19,8 +19,12 @@ export default defineConfig({
 		assets: "assets"
 	},
 
+	i18n: {
+		locales,
+		defaultLocale: "en"
+	},
+
 	integrations: [
-		sitemap(),
 		compress({
 			HTML: true,
 			CSS: false,
@@ -28,6 +32,12 @@ export default defineConfig({
 			SVG: false,
 			Image: false,
 			Logger: 0
+		}),
+		sitemap({
+			i18n: {
+				defaultLocale: "en",
+				locales: localesCodes
+			}
 		})
 	],
 

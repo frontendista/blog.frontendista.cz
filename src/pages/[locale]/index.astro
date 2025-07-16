@@ -1,0 +1,8 @@
+---
+import { getLocaleStaticPaths } from "src/utils/i18n";
+import IndexPage from "../index.astro";
+
+export const getStaticPaths = getLocaleStaticPaths;
+---
+
+<IndexPage />
