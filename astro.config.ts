@@ -1,4 +1,5 @@
 import sitemap from '@astrojs/sitemap';
+import { paraglideVitePlugin } from "@inlang/paraglide-js";
 import tailwindcss from "@tailwindcss/vite";
 import compress from "astro-compress";
 import { defineConfig } from 'astro/config';
@@ -58,6 +59,11 @@ export default defineConfig({
 
 	vite: {
 		plugins: [
+			paraglideVitePlugin({
+				project: "./project.inlang",
+				outdir: "./src/paraglide",
+				includeEslintDisableComment: false
+			}),
 			tailwindcss()
 		]
 	}
