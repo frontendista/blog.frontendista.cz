@@ -3,6 +3,7 @@
 		"astro-build.astro-vscode",
 		"dbaeumer.vscode-eslint",
 		"bradlc.vscode-tailwindcss",
-		"dejmedus.tailwind-sorter"
-	],
+		"dejmedus.tailwind-sorter",
+		"inlang.vs-code-extension"
+	]
 }

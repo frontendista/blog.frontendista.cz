@@ -62,7 +62,8 @@ export default defineConfig({
 			paraglideVitePlugin({
 				project: "./project.inlang",
 				outdir: "./src/paraglide",
-				includeEslintDisableComment: false
+				includeEslintDisableComment: false,
+				strategy: ["baseLocale"]
 			}),
 			tailwindcss()
 		]
