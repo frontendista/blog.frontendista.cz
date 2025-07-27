@@ -1,0 +1,45 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "development 🟪",
+			"detail": "Run's Astro development server",
+			"icon": {
+				"id": "play",
+				"color": "terminal.ansiMagenta"
+			},
+			"presentation": {
+				"echo": false,
+				"reveal": "always",
+				"focus": false,
+				"panel": "new",
+				"showReuseMessage": false,
+				"clear": true
+			},
+			"type": "shell",
+			"command": "bun run dev",
+			"group": "build",
+			"problemMatcher": []
+		},
+		{
+			"label": "build:preview 🟪",
+			"detail": "Builds the project and starts a preview server",
+			"icon": {
+				"id": "rocket",
+				"color": "terminal.ansiMagenta"
+			},
+			"presentation": {
+				"echo": false,
+				"reveal": "always",
+				"focus": false,
+				"panel": "new",
+				"showReuseMessage": false,
+				"clear": true
+			},
+			"type": "shell",
+			"command": "bun run build:preview",
+			"group": "build",
+			"problemMatcher": []
+		}
+	]
+}
