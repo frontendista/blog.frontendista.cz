@@ -13,11 +13,10 @@ export const SITES: Record<typeof SUPPORTED_ENVIRONMENTS[number], string> = {
 	production: "https://example.com"
 }
 
-export type SupportedLocales = "en" | "cs";
+export type SupportedLocales = "en";
 
 export const defaultLocale = "en";
-export const locales: SupportedLocales[] = ["en", "cs"];
+export const locales: SupportedLocales[] = ["en"];
 export const localesCodes: Record<SupportedLocales, string> = {
-	en: "en-US",
-	cs: "cs-CZ"
+	en: "en-US"
 }

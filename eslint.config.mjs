@@ -1,5 +1,5 @@
-import eslintPluginAstro from "eslint-plugin-astro";
 import stylistic from "@stylistic/eslint-plugin";
+import eslintPluginAstro from "eslint-plugin-astro";
 
 export default [
 	...eslintPluginAstro.configs["jsx-a11y-recommended"],

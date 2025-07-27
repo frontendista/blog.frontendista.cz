@@ -6,7 +6,10 @@
 	],
 	"settings": {
 		"editor.codeActionsOnSave": {
-			"source.organizeImports": "always"
+			"source.organizeImports": "always",
+			"source.fixAll.eslint": "always",
+			"source.fixAll.stylelint": "always",
+			"source.sortImports": "always"
 		},
 		"eslint.validate": [
 			"javascript",
@@ -14,6 +17,9 @@
 			"typescript",
 			"typescriptreact",
 			"astro"
-		]
+		],
+		"files.associations": {
+			"css": "tailwindcss"
+		},
 	}
 }
