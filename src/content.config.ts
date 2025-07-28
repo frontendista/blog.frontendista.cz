@@ -1,8 +1,4 @@
-import { glob } from "astro/loaders";
-import { defineCollection } from "astro:content";
+import { series } from "./collections/series";
+import { writings } from "./collections/writings";
 
-const writings = defineCollection({
-	loader: glob({ base: "./writings", pattern: "**/*.md" })
-});
-
-export const collections = { writings };
+export const collections = { writings, series };
