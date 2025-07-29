@@ -1,21 +1,23 @@
 ---
 import Layout from "@/components/layout.astro";
 import { SEO } from "astro-seo";
-import { getEntry } from "astro:content";
+import { getEntries, getEntry } from "astro:content";
 import { getLocaleStaticPaths } from "src/utils/i18n";
 
 export const getStaticPaths = getLocaleStaticPaths;
 
 const writing = await getEntry("writings", "test");
-console.log("Writing:", writing);
 
 if (!writing) {
 	throw new Error("Writing not found");
 }
 
+const authors = await getEntries(writing.data.authors);
+
+console.log("Authors:", authors);
+
 if (writing.data.series) {
-	const series = await getEntry(writing.data.series);
-	console.log("Series:", series);
+	await getEntry(writing.data.series);
 }
 ---
 

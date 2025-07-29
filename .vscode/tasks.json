@@ -22,6 +22,26 @@
 			"problemMatcher": []
 		},
 		{
+			"label": "build 🟪",
+			"detail": "Builds the project",
+			"icon": {
+				"id": "rocket",
+				"color": "terminal.ansiMagenta"
+			},
+			"presentation": {
+				"echo": false,
+				"reveal": "always",
+				"focus": false,
+				"panel": "new",
+				"showReuseMessage": false,
+				"clear": true
+			},
+			"type": "shell",
+			"command": "bun run build",
+			"group": "build",
+			"problemMatcher": []
+		},
+		{
 			"label": "build:preview 🟪",
 			"detail": "Builds the project and starts a preview server",
 			"icon": {
