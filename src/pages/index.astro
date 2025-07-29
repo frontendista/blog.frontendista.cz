@@ -12,6 +12,8 @@ if (!writing) {
 	throw new Error("Writing not found");
 }
 
+console.log("Writing data", writing.data);
+
 const authors = await getEntries(writing.data.authors);
 
 console.log("Authors:", authors);
