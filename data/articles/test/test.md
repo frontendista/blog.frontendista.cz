@@ -1,13 +1,15 @@
 ---
+authors:
+- susickypavel
 title: How to create a new application
+canonical_url: /test
 cover_photo: ./assets/cover_photo.png
 description: This ia a tutorial how to create new application in the modern world
 draft: true
 published_at: 2025-07-29T21:54:25+0000
 language: cs
 series: prasokod
-authors:
-- susickypavel
+slug: how-to-create-a-new-application
 ---
 
 Ahoj
