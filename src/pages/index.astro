@@ -6,7 +6,7 @@ import { getLocaleStaticPaths } from "src/utils/i18n";
 
 export const getStaticPaths = getLocaleStaticPaths;
 
-const writing = await getEntry("articles", "test");
+const writing = await getEntry("articles", "test/test");
 
 if (!writing) {
 	throw new Error("Writing not found");

@@ -1,15 +1,15 @@
-import sitemap from '@astrojs/sitemap';
+import sitemap from "@astrojs/sitemap";
 import { paraglideVitePlugin } from "@inlang/paraglide-js";
 import tailwindcss from "@tailwindcss/vite";
 import compress from "astro-compress";
-import { defineConfig } from 'astro/config';
+import { defineConfig } from "astro/config";
 import { consola } from "consola";
-import { PORTS, SITES, SUPPORTED_ENVIRONMENTS, locales, localesCodes } from './config';
+import { PORTS, SITES, SUPPORTED_ENVIRONMENTS, locales, localesCodes } from "./config";
 
 const currentEnvironment = process.env.NODE_ENV as typeof SUPPORTED_ENVIRONMENTS[number];
 
 if (!SUPPORTED_ENVIRONMENTS.includes(currentEnvironment)) {
-	throw new Error(`Invalid NODE_ENV. Must be one of ${SUPPORTED_ENVIRONMENTS.join(', ')}.`);
+	throw new Error(`Invalid NODE_ENV. Must be one of ${SUPPORTED_ENVIRONMENTS.join(", ")}.`);
 }
 
 consola.info(`Running in ${process.env.NODE_ENV} mode.`);
@@ -50,7 +50,7 @@ export default defineConfig({
 		return {
 			host: true,
 			port: PORTS[command]
-		}
+		};
 	},
 
 	site: SITES[currentEnvironment],
