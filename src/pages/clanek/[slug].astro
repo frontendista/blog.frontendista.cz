@@ -1,0 +1,10 @@
+---
+import { getArticleStaticPaths } from "@/utils/i18n";
+import ArticlePage from "../_common/article-page.astro";
+
+export const getStaticPaths = getArticleStaticPaths("cs");
+
+const { slug } = Astro.params;
+---
+
+<ArticlePage slug={slug} />

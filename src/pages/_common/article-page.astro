@@ -1,0 +1,23 @@
+---
+import Layout from "@/components/layout.astro";
+import { getEntry } from "astro:content";
+import consola from "consola";
+
+export interface Props {
+	slug: string;
+}
+
+const article = await getEntry("articles", Astro.props.slug);
+
+if (!article) {
+	throw new Error("Article not found");
+}
+
+if (article.data.cover_photo.width / article.data.cover_photo.height !== 16 / 9) {
+	consola.warn(`Article ${article.id} has a cover photo with an aspect ratio of ${article.data.cover_photo.width / article.data.cover_photo.height}. It should be 16:9.`);
+}
+---
+
+<Layout lang={article.data.language}>
+	{article.body}
+</Layout>

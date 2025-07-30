@@ -13,43 +13,43 @@ const ARTICLE_MAX_DESCRIPTION_LENGTH = 120;
 const ARTICLE_CANONICAL_URL_MIN_LENGTH = ARTICLE_MIN_TITLE_LENGTH;
 const ARTICLE_CANONICAL_URL_MAX_LENGTH = ARTICLE_MAX_TITLE_LENGTH * 2;
 
+const baseSchema = z.object({
+	authors: z.array(reference("authors"))
+		.min(1, "At least one author is required")
+		// NOTE: https://github.com/withastro/astro/issues/13268
+		.refine(authors => authors.some(author => authors_db.map(author => author.id).includes(author.id)), "Author must be defined in authors.json"),
+	canonical_url: z.string().trim()
+		.min(ARTICLE_CANONICAL_URL_MIN_LENGTH, `Canonical URL must be at least ${ARTICLE_CANONICAL_URL_MIN_LENGTH} characters long`)
+		.max(ARTICLE_CANONICAL_URL_MAX_LENGTH, `Canonical URL must be at most ${ARTICLE_CANONICAL_URL_MAX_LENGTH} characters long`)
+		.optional(),
+	published_at: z.coerce.date(),
+	updated_at: z.coerce.date().optional(),
+	description: z.string().trim()
+		.min(ARTICLE_MIN_DESCRIPTION_LENGTH, `Description must be at least ${ARTICLE_MIN_DESCRIPTION_LENGTH} characters long`)
+		.max(ARTICLE_MAX_DESCRIPTION_LENGTH, `Description must be at most ${ARTICLE_MAX_DESCRIPTION_LENGTH} characters long`),
+	draft: z.boolean(),
+	language: z.enum(locales),
+	series: reference("series").optional(),
+	title: z.string().trim()
+		.min(ARTICLE_MIN_TITLE_LENGTH, `Title must be at least ${ARTICLE_MIN_TITLE_LENGTH} characters long`)
+		.max(ARTICLE_MAX_TITLE_LENGTH, `Title must be at most ${ARTICLE_MAX_TITLE_LENGTH} characters long`)
+});
+
+export type ArticleSchema = z.infer<typeof baseSchema>;
+
 function createSchema({ image }: SchemaContext) {
-	const schema = z.object({
-		authors: z.array(reference("authors"))
-			.min(1, "At least one author is required")
-			// NOTE: https://github.com/withastro/astro/issues/13268
-			.refine(authors => authors.some(author => authors_db.map(author => author.id).includes(author.id)), "Author must be defined in authors.json"),
-		cover_photo: image(),
-		canonical_url: z.string().trim()
-			.min(ARTICLE_CANONICAL_URL_MIN_LENGTH, `Canonical URL must be at least ${ARTICLE_CANONICAL_URL_MIN_LENGTH} characters long`)
-			.max(ARTICLE_CANONICAL_URL_MAX_LENGTH, `Canonical URL must be at most ${ARTICLE_CANONICAL_URL_MAX_LENGTH} characters long`)
-			.optional(),
-		published_at: z.coerce.date(),
-		updated_at: z.coerce.date().optional(),
-		description: z.string().trim()
-			.min(ARTICLE_MIN_DESCRIPTION_LENGTH, `Description must be at least ${ARTICLE_MIN_DESCRIPTION_LENGTH} characters long`)
-			.max(ARTICLE_MAX_DESCRIPTION_LENGTH, `Description must be at most ${ARTICLE_MAX_DESCRIPTION_LENGTH} characters long`),
-		draft: z.boolean(),
-		language: z.enum(locales),
-		series: reference("series").optional(),
-		title: z.string().trim()
-			.min(ARTICLE_MIN_TITLE_LENGTH, `Title must be at least ${ARTICLE_MIN_TITLE_LENGTH} characters long`)
-			.max(ARTICLE_MAX_TITLE_LENGTH, `Title must be at most ${ARTICLE_MAX_TITLE_LENGTH} characters long`)
-	});
-
-	type Schema = z.infer<typeof schema>;
-
-	function isUpdatedAtAfterPublishedAt(data: Schema) {
+	function isUpdatedAtAfterPublishedAt(data: ArticleSchema) {
 		return !data.updated_at || data.updated_at >= data.published_at;
 	};
 
-	return schema.refine(isUpdatedAtAfterPublishedAt, {
-		message: "Updated date must be after publishedAt date",
-		path: ["updated_at"]
-	});
+	return baseSchema.extend({ cover_photo: image() })
+		.refine(isUpdatedAtAfterPublishedAt, {
+			message: "updated_at must be after published_at date",
+			path: ["updated_at"]
+		});
 }
 
 export const articles = defineCollection({
-	loader: glob({ base: "./data/articles", pattern: "**/*.md" }),
+	loader: glob({ base: "./data/articles", pattern: "**/*.{md,mdx}" }),
 	schema: createSchema
 });

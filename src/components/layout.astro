@@ -4,18 +4,21 @@ import "@/styles/tailwind.css";
 
 import * as m from "@/paraglide/messages";
 import { overwriteGetLocale } from "@/paraglide/runtime";
-import { locales, type SupportedLocales } from "config";
+import { defaultLocale, type SupportedLocales } from "config";
 
-const locale = Astro.currentLocale as SupportedLocales;
-
-if (!locales.includes(locale)) {
-	throw new Error(`Locale ${locale} is not supported.`);
+export interface Props {
+	/**
+	 * @default {config.defaultLocale}
+	 */
+	lang?: SupportedLocales;
 }
 
-overwriteGetLocale(() => locale);
+const { lang = defaultLocale } = Astro.props;
+
+overwriteGetLocale(() => lang);
 ---
 
-<html lang="en">
+<html lang={lang}>
 	<head>
 		<meta charset="utf-8" />
 		<link href="data:image/x-icon;base64,AAABAAEAEBAQAAEABAAoAQAAFgAAACgAAAAQAAAAIAAAAAEABAAAAAAAgAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAeH+fANjY2AD///8AcnJyAFzS5AAsPn8AKEbMAJaWlgB7jLYAP4zjAKioqAA1NTUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAzMzMAAAAAAyyuEjAAAAAyyK4hIwAAADCIruEjAAADEIyu4RIwAAMsjK7h0vAAAwiMruES8AADCIiu4dLwAAMK2ZmekjAAAy2eldVeMAADHpaVaWnwAAMF1WqWnnAAADMoZl3zAAAAADMzMwAAAAAAAAAAAAAD//wAA+B8AAPAPAADgBwAA4AcAAMADAADAAwAAwAMAAMADAADAAwAAwAMAAMADAADAAwAA4AcAAPgfAAD//wAA" rel="icon" type="image/x-icon" />

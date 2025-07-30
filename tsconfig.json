@@ -11,7 +11,10 @@
 			],
 			"@/paraglide/*": [
 				"./src/paraglide/*"
-			]
+			],
+			"@/utils/*": [
+				"./src/utils/*"
+			],
 		},
 	},
 	"include": [
