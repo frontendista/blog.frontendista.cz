@@ -6,7 +6,7 @@ import { getLocaleStaticPaths } from "src/utils/i18n";
 
 export const getStaticPaths = getLocaleStaticPaths;
 
-const writing = await getEntry("writings", "test");
+const writing = await getEntry("articles", "test");
 
 if (!writing) {
 	throw new Error("Writing not found");
@@ -19,7 +19,8 @@ const authors = await getEntries(writing.data.authors);
 console.log("Authors:", authors);
 
 if (writing.data.series) {
-	await getEntry(writing.data.series);
+	const series = await getEntry(writing.data.series);
+	console.log("Series:", series);
 }
 ---
 
