@@ -1,6 +1,6 @@
 ---
 import Layout from "@/components/layout.astro";
-import { getEntry } from "astro:content";
+import { getEntry, render } from "astro:content";
 import consola from "consola";
 
 export interface Props {
@@ -17,9 +17,11 @@ if (article.data.cover_photo.width / article.data.cover_photo.height !== 16 / 9)
 	consola.warn(`Article ${article.id} has a cover photo with an aspect ratio of ${article.data.cover_photo.width / article.data.cover_photo.height}. It should be 16:9.`);
 }
 
-console.log("Article data", article);
+const { Content } = await render(article);
 ---
 
 <Layout lang={article.data.language}>
-	{article.body}
+	<main>
+		<Content />
+	</main>
 </Layout>

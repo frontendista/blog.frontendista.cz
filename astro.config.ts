@@ -1,4 +1,5 @@
 import mdx from "@astrojs/mdx";
+import react from "@astrojs/react";
 import sitemap from "@astrojs/sitemap";
 import { paraglideVitePlugin } from "@inlang/paraglide-js";
 import tailwindcss from "@tailwindcss/vite";
@@ -27,6 +28,7 @@ export default defineConfig({
 	},
 
 	integrations: [
+		react(),
 		mdx({
 			remarkPlugins: [],
 			rehypePlugins: [],

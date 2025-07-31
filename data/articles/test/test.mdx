@@ -15,4 +15,15 @@ series: prasokod
 slug: how-to-create-a-new-application
 ---
 
-Ahoj
+import Figure from "@/article/figure.astro";
+import graph from "./assets/graph.png";
+
+# Hello, World!
+
+import { Test } from "@/components/__experiments__/test";
+
+<Test client:visible />
+
+<Figure src={graph} alt="test">
+	Figure of an image
+</Figure>
