@@ -62,7 +62,12 @@ function createSchema({ image }: SchemaContext) {
 		return !data.updated_at || data.updated_at >= data.published_at;
 	};
 
-	return baseSchema.extend({ cover_photo: image() })
+	return baseSchema.extend({
+		cover_photo: z.object({
+			image: image(),
+			alt: z.string().trim()
+		})
+	})
 		.refine(isUpdatedAtAfterPublishedAt, {
 			message: "updated_at must be after published_at date",
 			path: ["updated_at"]
