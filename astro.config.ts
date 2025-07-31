@@ -68,6 +68,15 @@ export default defineConfig({
 	trailingSlash: "never",
 
 	vite: {
+		build: {
+			rollupOptions: {
+				output: {
+					entryFileNames: "assets/[hash:16].js",
+					assetFileNames: "assets/[hash:16][extname]",
+					chunkFileNames: "chunks/[hash:16].js"
+				}
+			}
+		},
 		plugins: [
 			paraglideVitePlugin({
 				project: "./project.inlang",
