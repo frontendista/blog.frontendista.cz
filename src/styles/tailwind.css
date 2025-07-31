@@ -31,7 +31,7 @@ h6 {
 }
 
 body {
-	background: #000;
+	background: #111111;
 	color: #fff;
 
 	@apply text-xl;
