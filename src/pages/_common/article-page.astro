@@ -2,6 +2,7 @@
 import Layout from "@/components/layout.astro";
 import { getEntry, render } from "astro:content";
 import consola from "consola";
+import "./article-page.css";
 
 export interface Props {
 	slug: string;
@@ -21,7 +22,9 @@ const { Content } = await render(article);
 ---
 
 <Layout lang={article.data.language}>
-	<main>
-		<Content />
+	<main class="mx-auto max-w-[64rem]">
+		<article>
+			<Content />
+		</article>
 	</main>
 </Layout>

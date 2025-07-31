@@ -4,15 +4,16 @@ import { Picture } from "astro:assets";
 
 export interface Props {
 	alt: string;
+	caption: string;
 	src: ImageMetadata;
 }
 
-const { alt, src } = Astro.props;
+const { alt, src, caption } = Astro.props;
 ---
 
 <figure>
 	<Picture formats={["avif", "webp"]} {src} {alt} />
-	<figcaption>
-		<slot />
+	<figcaption class="mt-2 text-center">
+		{caption}
 	</figcaption>
 </figure>

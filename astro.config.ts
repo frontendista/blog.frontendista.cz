@@ -6,6 +6,7 @@ import tailwindcss from "@tailwindcss/vite";
 import compress from "astro-compress";
 import { defineConfig } from "astro/config";
 import { consola } from "consola";
+import sectionize from "remark-sectionize";
 import { PORTS, SITES, SUPPORTED_ENVIRONMENTS, locales, localesCodes } from "./config";
 
 const currentEnvironment = process.env.NODE_ENV as typeof SUPPORTED_ENVIRONMENTS[number];
@@ -30,7 +31,7 @@ export default defineConfig({
 	integrations: [
 		react(),
 		mdx({
-			remarkPlugins: [],
+			remarkPlugins: [sectionize],
 			rehypePlugins: [],
 			recmaPlugins: [],
 			optimize: true

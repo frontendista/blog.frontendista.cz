@@ -1,0 +1,56 @@
+@import "tailwindcss";
+
+article {
+	counter-reset: section;
+}
+
+section {
+	@apply space-y-4;
+}
+
+h1 {
+	counter-increment: section;
+	counter-reset: subsection figure;
+
+	&::before {
+		content: counter(section) ". ";
+	}
+}
+
+h2 {
+	counter-increment: subsection;
+	counter-reset: subsubsection figure;
+
+	&::before {
+		content: counter(section) "." counter(subsection) ".";
+	}
+}
+
+h3 {
+	counter-increment: subsubsection;
+	counter-reset: figure;
+
+	&::before {
+		content: counter(section) "." counter(subsection) "." counter(subsubsection) ".";
+	}
+}
+
+figure {
+	counter-increment: figure;
+}
+
+figcaption {
+	font-weight: bold;
+}
+
+article > section > figure > figcaption::before {
+	content: "Figure " counter(section) "-" counter(figure) ": ";
+}
+
+article > section > section > figure > figcaption::before {
+	content: "Figure " counter(section) "." counter(subsection) "-" counter(figure) ": ";
+}
+
+article > section > section > section > figure > figcaption::before {
+	content: "Figure " counter(section) "." counter(subsection) "." counter(subsubsection) "-" counter(figure) ": ";
+}

@@ -21,10 +21,6 @@ h6 {
 	@apply font-heading font-bold uppercase leading-tight;
 }
 
-h1 {
-	@apply text-7xl;
-}
-
 body {
 	background: #000;
 	color: #fff;

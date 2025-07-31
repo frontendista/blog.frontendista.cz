@@ -2,7 +2,6 @@
 import "@/styles/global.scss";
 import "@/styles/tailwind.css";
 
-import * as m from "@/paraglide/messages";
 import { overwriteGetLocale } from "@/paraglide/runtime";
 import { defaultLocale, type SupportedLocales } from "config";
 
@@ -21,10 +20,10 @@ overwriteGetLocale(() => lang);
 <html lang={lang}>
 	<head>
 		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<link href="data:image/x-icon;base64,AAABAAEAEBAQAAEABAAoAQAAFgAAACgAAAAQAAAAIAAAAAEABAAAAAAAgAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAeH+fANjY2AD///8AcnJyAFzS5AAsPn8AKEbMAJaWlgB7jLYAP4zjAKioqAA1NTUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAzMzMAAAAAAyyuEjAAAAAyyK4hIwAAADCIruEjAAADEIyu4RIwAAMsjK7h0vAAAwiMruES8AADCIiu4dLwAAMK2ZmekjAAAy2eldVeMAADHpaVaWnwAAMF1WqWnnAAADMoZl3zAAAAADMzMwAAAAAAAAAAAAAD//wAA+B8AAPAPAADgBwAA4AcAAMADAADAAwAAwAMAAMADAADAAwAAwAMAAMADAADAAwAA4AcAAPgfAAD//wAA" rel="icon" type="image/x-icon" />
 	</head>
 	<body>
-		<span>Test: {m.test()}</span>
 		<slot />
 	</body>
 </html>
