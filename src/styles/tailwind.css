@@ -1,7 +1,16 @@
 @import "tailwindcss";
 
+@import "../pages/_common/article-page.css";
+
 @theme {
 	--font-heading: "Heading", "sans-serif";
+
+	--spacing-xs: 0.25rem;
+	--spacing-sm: 0.5rem;
+	--spacing-md: 0.75rem;
+	--spacing-lg: 1rem;
+	--spacing-2lg: 1.25rem;
+	--spacing-xl: 2rem;
 }
 
 @font-face {
@@ -24,5 +33,7 @@ h6 {
 body {
 	background: #000;
 	color: #fff;
+
+	@apply text-xl;
 }
 

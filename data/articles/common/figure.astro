@@ -12,7 +12,7 @@ const { alt, src, caption } = Astro.props;
 ---
 
 <figure>
-	<Picture formats={["avif", "webp"]} {src} {alt} />
+	<Picture formats={["avif", "webp"]} {src} {alt} class="bg-fuchsia-950/25" />
 	<figcaption class="mt-2 text-center">
 		{caption}
 	</figcaption>
