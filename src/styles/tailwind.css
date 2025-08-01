@@ -3,8 +3,7 @@
 @import "../pages/_common/article-page.css";
 
 @theme {
-	--font-heading: "Heading", "sans-serif";
-	--font-monospace: "Monospace", "monospace";
+	--font-monospace: "Atkinson Mono", "monospace";
 
 	--spacing-xs: 0.25rem;
 	--spacing-sm: 0.5rem;
@@ -15,25 +14,33 @@
 }
 
 @font-face {
-	font-family: 'Heading';
-	src: url('/assets/fonts/unbounded.woff2') format('woff2');
-	font-weight: 200 900;
+	font-family: 'Atkinson';
+	src: url('/assets/fonts/atkinson-hypereligible/normal.woff2') format('woff2');
+	font-weight: 200 800;
 	font-style: normal;
 	font-display: swap;
 }
 
 @font-face {
-	font-family: 'Monospace';
-	src: url('/assets/fonts/jetbrains/normal.woff2') format('woff2');
-	font-weight: 100 800;
+	font-family: 'Atkinson';
+	src: url('/assets/fonts/atkinson-hypereligible/italic.woff2') format('woff2');
+	font-weight: 200 800;
+	font-style: italic;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Atkinson Mono';
+	src: url('/assets/fonts/atkinson-hypereligible/mono/normal.woff2') format('woff2');
+	font-weight: 200 800;
 	font-style: normal;
 	font-display: swap;
 }
 
 @font-face {
-	font-family: 'Monospace';
-	src: url('/assets/fonts/jetbrains/italic.woff2') format('woff2');
-	font-weight: 100 800;
+	font-family: 'Atkinson Mono';
+	src: url('/assets/fonts/atkinson-hypereligible/mono/italic.woff2') format('woff2');
+	font-weight: 200 800;
 	font-style: italic;
 	font-display: swap;
 }
@@ -44,7 +51,7 @@ h3,
 h4,
 h5,
 h6 {
-	@apply font-heading font-bold uppercase leading-tight;
+	@apply font-bold uppercase leading-tight;
 }
 
 body {
