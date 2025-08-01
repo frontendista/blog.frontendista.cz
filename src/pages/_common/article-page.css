@@ -8,27 +8,38 @@ section {
 	@apply space-y-lg;
 }
 
-article h1 {
+section > :nth-child(2) {
+	margin-top: --theme(--spacing-lg);
+}
+
+article h2 {
 	counter-increment: section;
 	counter-reset: subsection figure;
+	margin-bottom: 0px;
+
+	position: sticky;
+	top: 0;
+	background: --theme(--bg-primary);
 
 	&::before {
 		content: counter(section) ". ";
 	}
 }
 
-article h2 {
+article h3 {
 	counter-increment: subsection;
 	counter-reset: subsubsection figure;
+	margin-bottom: 0px;
 
 	&::before {
 		content: counter(section) "." counter(subsection) ". ";
 	}
 }
 
-article h3 {
+article h4 {
 	counter-increment: subsubsection;
 	counter-reset: figure;
+	margin-bottom: 0px;
 
 	&::before {
 		content: counter(section) "." counter(subsection) "." counter(subsubsection) ". ";

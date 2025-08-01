@@ -6,6 +6,39 @@
 
 @import "../pages/_common/article-page.css";
 
+:root {
+	background: --theme(--bg-primary);
+	color: #fff;
+
+	scrollbar-color: #333 --theme(--bg-primary);
+
+	--h1: 2.2875rem;
+	--h2: 1.83rem;
+	--h3: 1.4625rem;
+	--paragraph: 1rem;
+
+	@media (min-width: 768px) {
+		/* --text-7xl: 5.96rem; */
+		/* --text-6xl: 4.77rem; */
+		/* --text-5xl: 3.81rem; */
+		--h1: 3.05rem;
+		--h2: 2.44rem;
+		--h3: 1.95rem;
+		/* --text-xl: 1.56rem; */
+		--paragraph: 1.25rem;
+		/* --text-base: 1rem; */
+		/* --text-tiny: 0.8rem; */
+		/* --text-sm: 0.64rem; */
+	}
+}
+
+@theme inline {
+	--text-paragraph: var(--paragraph);
+	--text-h3: var(--h3);
+	--text-h2: var(--h2);
+	--text-h1: var(--h1);
+}
+
 @theme {
 	--font-atkinson-mono: "Atkinson Mono", "monospace";
 	--font-atkinson: "Atkinson", "sans-serif";
@@ -16,6 +49,8 @@
 	--spacing-lg: 1rem;
 	--spacing-2lg: 1.25rem;
 	--spacing-xl: 2rem;
+
+	--bg-primary: #111;
 }
 
 @font-face {
@@ -59,10 +94,19 @@ h6 {
 	@apply font-bold uppercase leading-tight;
 }
 
-body {
-	background: #111111;
-	color: #fff;
+h1 {
+	@apply text-h1;
+}
 
-	@apply text-xl antialiased;
+h2 {
+	@apply text-h2;
+}
+
+h3 {
+	@apply text-h3;
+}
+
+body {
+	@apply text-paragraph antialiased;
 }
 
