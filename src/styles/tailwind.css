@@ -1,9 +1,14 @@
-@import "tailwindcss";
+@layer theme, base, components, utilities;
+
+@import "tailwindcss/theme.css" layer(theme);
+@import "./preflight.css" layer(base);
+@import "tailwindcss/utilities.css" layer(utilities);
 
 @import "../pages/_common/article-page.css";
 
 @theme {
-	--font-monospace: "Atkinson Mono", "monospace";
+	--font-atkinson-mono: "Atkinson Mono", "monospace";
+	--font-atkinson: "Atkinson", "sans-serif";
 
 	--spacing-xs: 0.25rem;
 	--spacing-sm: 0.5rem;
@@ -58,6 +63,6 @@ body {
 	background: #111111;
 	color: #fff;
 
-	@apply text-xl;
+	@apply text-xl antialiased;
 }
 
