@@ -25,6 +25,7 @@
 		"astro-seo": "0.8.4",
 		"consola": "3.4.2",
 		"cross-env": "10.0.0",
+		"lqip-modern": "2.2.1",
 		"npm-run-all2": "8.0.4",
 		"remark-sectionize": "2.1.0",
 		"sass": "1.89.2",

@@ -20,9 +20,14 @@ article h2 {
 	position: sticky;
 	top: 0;
 	background: --theme(--bg-primary);
+	z-index: 10;
 
 	&::before {
 		content: counter(section) ". ";
+	}
+
+	@media (min-width: 768px) {
+		position: static;
 	}
 }
 
@@ -50,18 +55,47 @@ figure {
 	counter-increment: figure;
 }
 
-figcaption {
-	font-weight: bold;
-}
-
 article > section > figure > figcaption::before {
-	content: "Figure " counter(section) "-" counter(figure) ": ";
+	content: attr(data-figcaption) " " counter(section) "-" counter(figure) ": ";
 }
 
 article > section > section > figure > figcaption::before {
-	content: "Figure " counter(section) "." counter(subsection) "-" counter(figure) ": ";
+	content: attr(data-figcaption) " " counter(section) "." counter(subsection) "-" counter(figure) ": ";
 }
 
 article > section > section > section > figure > figcaption::before {
-	content: "Figure " counter(section) "." counter(subsection) "." counter(subsubsection) "-" counter(figure) ": ";
+	content: attr(data-figcaption) " " counter(section) "." counter(subsection) "." counter(subsubsection) "-" counter(figure) ": ";
+}
+
+@layer components {
+	[data-figure] {
+		@apply bg-[#222] p-lg;
+	}
+
+	[data-picture] {
+		position: relative;
+		background-image: var(--lqip);
+		overflow: hidden;
+
+		@apply block bg-cover;
+	}
+
+	[data-picture="loading"]::before {
+		content: '';
+		position: absolute;
+		inset: 0;
+		backdrop-filter: blur(20px);
+	}
+
+	[data-image] {
+		@apply transition-all duration-500;
+	}
+
+	[data-image="loading"] {
+		@apply opacity-0 scale-125;
+	}
+
+	[data-figcaption] {
+		@apply bg-[#333] p-md font-atkinson-mono font-medium text-base text-center text-balance;
+	}
 }
