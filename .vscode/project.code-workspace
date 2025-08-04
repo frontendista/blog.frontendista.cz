@@ -20,7 +20,7 @@
 			"astro"
 		],
 		"files.associations": {
-			"css": "tailwindcss"
-		},
+			"*.css": "tailwindcss"
+		}
 	}
 }
