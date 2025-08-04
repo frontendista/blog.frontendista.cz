@@ -1,101 +1,103 @@
-article {
-	counter-reset: section;
-
-	@apply space-y-xl;
-}
-
-section {
-	@apply space-y-lg;
-}
-
-section > :nth-child(2) {
-	margin-top: --theme(--spacing-lg);
-}
-
-article h2 {
-	counter-increment: section;
-	counter-reset: subsection figure;
-	margin-bottom: 0px;
-
-	position: sticky;
-	top: 0;
-	background: --theme(--bg-primary);
-	z-index: 10;
-
-	&::before {
-		content: counter(section) ". ";
-	}
-
-	@media (min-width: 768px) {
-		position: static;
-	}
-}
-
-article h3 {
-	counter-increment: subsection;
-	counter-reset: subsubsection figure;
-	margin-bottom: 0px;
-
-	&::before {
-		content: counter(section) "." counter(subsection) ". ";
-	}
-}
-
-article h4 {
-	counter-increment: subsubsection;
-	counter-reset: figure;
-	margin-bottom: 0px;
-
-	&::before {
-		content: counter(section) "." counter(subsection) "." counter(subsubsection) ". ";
-	}
-}
-
-figure {
-	counter-increment: figure;
-}
-
-article > section > figure > figcaption::before {
-	content: attr(data-figcaption) " " counter(section) "-" counter(figure) ": ";
-}
-
-article > section > section > figure > figcaption::before {
-	content: attr(data-figcaption) " " counter(section) "." counter(subsection) "-" counter(figure) ": ";
-}
-
-article > section > section > section > figure > figcaption::before {
-	content: attr(data-figcaption) " " counter(section) "." counter(subsection) "." counter(subsubsection) "-" counter(figure) ": ";
-}
-
 @layer components {
-	[data-figure] {
-		@apply bg-[#222] p-lg;
+	article {
+		counter-reset: section;
+
+		@apply space-y-xl;
 	}
 
-	[data-picture] {
-		position: relative;
-		background-image: var(--lqip);
-		overflow: hidden;
-
-		@apply block bg-cover;
+	section {
+		@apply space-y-lg;
 	}
 
-	[data-picture="loading"]::before {
-		content: '';
-		position: absolute;
-		inset: 0;
-		backdrop-filter: blur(20px);
+	section > :nth-child(2) {
+		margin-top: --theme(--spacing-lg);
 	}
 
-	[data-image] {
-		@apply transition-all duration-500;
+	article h2 {
+		counter-increment: section;
+		counter-reset: subsection figure;
+		margin-bottom: 0px;
+
+		position: sticky;
+		top: 0;
+		background: --theme(--bg-primary);
+		z-index: 10;
+
+		&::before {
+			content: counter(section) ". ";
+		}
+
+		@media (min-width: 768px) {
+			position: static;
+		}
 	}
 
-	[data-image="loading"] {
-		@apply opacity-0 scale-125;
+	article h3 {
+		counter-increment: subsection;
+		counter-reset: subsubsection figure;
+		margin-bottom: 0px;
+
+		&::before {
+			content: counter(section) "." counter(subsection) ". ";
+		}
 	}
 
-	[data-figcaption] {
-		@apply bg-[#333] p-md font-atkinson-mono font-medium text-base text-center text-balance;
+	article h4 {
+		counter-increment: subsubsection;
+		counter-reset: figure;
+		margin-bottom: 0px;
+
+		&::before {
+			content: counter(section) "." counter(subsection) "." counter(subsubsection) ". ";
+		}
+	}
+
+	figure {
+		counter-increment: figure;
+	}
+
+	article > section > figure > figcaption::before {
+		content: attr(data-figcaption) " " counter(section) "-" counter(figure) ": ";
+	}
+
+	article > section > section > figure > figcaption::before {
+		content: attr(data-figcaption) " " counter(section) "." counter(subsection) "-" counter(figure) ": ";
+	}
+
+	article > section > section > section > figure > figcaption::before {
+		content: attr(data-figcaption) " " counter(section) "." counter(subsection) "." counter(subsubsection) "-" counter(figure) ": ";
+	}
+
+	@layer components {
+		[data-figure] {
+			@apply bg-brand-950 p-lg;
+		}
+
+		[data-picture] {
+			position: relative;
+			background-image: var(--lqip);
+			overflow: hidden;
+
+			@apply block bg-cover;
+		}
+
+		[data-picture="loading"]::before {
+			content: '';
+			position: absolute;
+			inset: 0;
+			backdrop-filter: blur(20px);
+		}
+
+		[data-image] {
+			@apply transition-all duration-500;
+		}
+
+		[data-image="loading"] {
+			@apply opacity-0 scale-125;
+		}
+
+		[data-figcaption] {
+			@apply bg-brand-900 p-md font-atkinson-mono font-medium text-base text-center text-balance;
+		}
 	}
 }

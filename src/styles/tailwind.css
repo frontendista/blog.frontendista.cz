@@ -16,6 +16,9 @@
 	--h2: 1.83rem;
 	--h3: 1.4625rem;
 	--paragraph: 1rem;
+	--text-base: 0.75rem;
+	--text-tiny: 0.6rem;
+	--text-small: 0.48rem;
 
 	@media (min-width: 768px) {
 		/* --text-7xl: 5.96rem; */
@@ -26,13 +29,14 @@
 		--h3: 1.95rem;
 		/* --text-xl: 1.56rem; */
 		--paragraph: 1.25rem;
-		/* --text-base: 1rem; */
-		/* --text-tiny: 0.8rem; */
-		/* --text-sm: 0.64rem; */
+		--text-base: 1rem;
+		--text-tiny: 0.8rem;
+		--text-small: 0.64rem;
 	}
 }
 
 @theme inline {
+	--text-small: var(--text-small);
 	--text-paragraph: var(--paragraph);
 	--text-h3: var(--h3);
 	--text-h2: var(--h2);
@@ -51,6 +55,9 @@
 	--spacing-xl: 2rem;
 
 	--bg-primary: #111;
+
+	--color-brand-950: oklch(29.3% 0.136 325.661);
+	--color-brand-900: oklch(40.1% 0.17 325.612);
 }
 
 @font-face {
@@ -58,7 +65,7 @@
 	src: url('/assets/fonts/atkinson-hypereligible/normal.woff2') format('woff2');
 	font-weight: 200 800;
 	font-style: normal;
-	font-display: swap;
+	font-display: block;
 }
 
 @font-face {
@@ -66,7 +73,7 @@
 	src: url('/assets/fonts/atkinson-hypereligible/italic.woff2') format('woff2');
 	font-weight: 200 800;
 	font-style: italic;
-	font-display: swap;
+	font-display: block;
 }
 
 @font-face {
@@ -74,7 +81,7 @@
 	src: url('/assets/fonts/atkinson-hypereligible/mono/normal.woff2') format('woff2');
 	font-weight: 200 800;
 	font-style: normal;
-	font-display: swap;
+	font-display: block;
 }
 
 @font-face {
@@ -82,7 +89,7 @@
 	src: url('/assets/fonts/atkinson-hypereligible/mono/italic.woff2') format('woff2');
 	font-weight: 200 800;
 	font-style: italic;
-	font-display: swap;
+	font-display: block;
 }
 
 h1,
