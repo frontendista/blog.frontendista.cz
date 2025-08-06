@@ -47,6 +47,9 @@
 	--font-atkinson-mono: "Atkinson Mono", "monospace";
 	--font-atkinson: "Atkinson", "sans-serif";
 
+	--size-text: 1em;
+
+	--spacing-text: 1em;
 	--spacing-xs: 0.25rem;
 	--spacing-sm: 0.5rem;
 	--spacing-md: 0.75rem;
@@ -58,6 +61,15 @@
 
 	--color-brand-950: oklch(29.3% 0.136 325.661);
 	--color-brand-900: oklch(40.1% 0.17 325.612);
+	--color-brand-800: oklch(45.2% 0.211 324.591);
+	--color-brand-700: oklch(51.8% 0.253 323.949);
+	--color-brand-600: oklch(59.1% 0.293 322.896);
+	--color-brand-500: oklch(66.7% 0.295 322.15);
+	--color-brand-400: oklch(74% 0.238 322.16);
+	--color-brand-300: oklch(83.3% 0.145 321.434);
+	--color-brand-200: oklch(90.3% 0.076 319.62);
+	--color-brand-100: oklch(95.2% 0.037 318.852);
+	--color-brand-50: oklch(97.7% 0.017 320.058);
 }
 
 @font-face {
@@ -92,6 +104,10 @@
 	font-display: block;
 }
 
+*:focus-visible {
+	outline: none;
+}
+
 h1,
 h2,
 h3,
@@ -114,6 +130,8 @@ h3 {
 }
 
 body {
+	color: oklch(86.9% 0.005 56.366);
+
 	@apply text-paragraph antialiased;
 }
 

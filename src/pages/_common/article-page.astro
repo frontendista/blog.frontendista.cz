@@ -1,5 +1,6 @@
 ---
 import Layout from "@/components/layout.astro";
+import TextLink from "@/components/mdx/text-link.astro";
 import { Picture } from "astro:assets";
 import { getEntry, render } from "astro:content";
 import consola from "consola";
@@ -30,7 +31,11 @@ const { cover_photo, title } = article.data;
 			<h1 class="p-lg text-center">{title}</h1>
 		</header>
 		<article>
-			<Content />
+			<Content
+				components={{
+					a: TextLink
+				}}
+			/>
 		</article>
 	</main>
 </Layout>
