@@ -5,10 +5,11 @@
 @import "tailwindcss/utilities.css" layer(utilities);
 
 @import "../pages/_common/article-page.css";
+@import "./rmiz.css";
 
 :root {
 	background: --theme(--bg-primary);
-	color: #fff;
+	color: oklch(86.9% 0.005 56.366);
 
 	scrollbar-color: #333 --theme(--bg-primary);
 
@@ -130,8 +131,6 @@ h3 {
 }
 
 body {
-	color: oklch(86.9% 0.005 56.366);
-
 	@apply text-paragraph antialiased;
 }
 
