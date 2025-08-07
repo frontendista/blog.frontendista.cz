@@ -4,6 +4,7 @@ import TextLink from "@/components/mdx/text-link.astro";
 import { Picture } from "astro:assets";
 import { getEntry, render } from "astro:content";
 import consola from "consola";
+import AuthorCollection from "./author-collection.astro";
 
 export interface Props {
 	slug: string;
@@ -21,14 +22,16 @@ if (article.data.cover_photo.image.width / article.data.cover_photo.image.height
 
 const { Content } = await render(article);
 
-const { cover_photo, title } = article.data;
+const { cover_photo, title, authors } = article.data;
 ---
 
 <Layout lang={article.data.language}>
-	<main class="bg-article mx-auto p-xl max-w-[64rem]">
+	<main class="bg-article mx-auto p-lg lg:p-xl max-w-[64rem]">
 		<header class="mb-xl">
-			<Picture src={cover_photo.image} alt={cover_photo.alt} class="mask-b-from-0 object-cover aspect-video" />
-			<h1 class="p-lg text-center">{title}</h1>
+			<Picture formats={["webp", "avif"]} src={cover_photo.image} alt={cover_photo.alt} class="mask-b-from-0 object-cover aspect-video" />
+			<h1 class="my-xl">{title}</h1>
+
+			<AuthorCollection {authors} />
 		</header>
 		<article>
 			<Content

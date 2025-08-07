@@ -6,7 +6,7 @@
 	}
 
 	section {
-		@apply space-y-lg;
+		@apply space-y-lg my-[4rem] lg:my-[8rem];
 	}
 
 	section > :nth-child(2) {

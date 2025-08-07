@@ -1,0 +1,21 @@
+---
+import { getEntries } from "astro:content";
+import type { ArticleSchema } from "src/collections/article";
+import ArticleAuthor from "./article-author.astro";
+
+export interface Props {
+	authors: ArticleSchema["authors"];
+}
+
+const { authors } = Astro.props;
+
+const entries = await getEntries(authors);
+---
+
+<ul class="flex flex-wrap gap-md">
+	{entries.map(entry => (
+		<li>
+			<ArticleAuthor author={entry} />
+		</li>
+	))}
+</ul>

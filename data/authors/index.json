@@ -2,6 +2,8 @@
 	{
 		"id": "susickypavel",
 		"avatar": "./assets/susickypavel.jpg",
-		"name": "Pavel Susický"
+		"link": "https://frontendista.cz",
+		"name": "Pavel Sušický",
+		"title": "Software Engineer"
 	}
 ]

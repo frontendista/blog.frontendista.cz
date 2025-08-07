@@ -27,7 +27,8 @@ const baseSchema = z.object({
 	authors: z.array(reference("authors"))
 		.min(1, "At least one author is required")
 		// NOTE: https://github.com/withastro/astro/issues/13268
-		.refine(authors => authors.some(author => authors_db.map(author => author.id).includes(author.id)), "Author must be defined in authors.json"),
+		.refine(authors => authors.some(author => authors_db.map(author => author.id).includes(author.id)), "Author must be defined in authors.json")
+		.refine(authors => new Set(authors.map(author => author.id)).size === authors.length, "Authors must be unique"),
 
 	canonical_url: z.string().trim()
 		.min(ARTICLE_CANONICAL_URL_MIN_LENGTH, `Canonical URL must be at least ${ARTICLE_CANONICAL_URL_MIN_LENGTH} characters long`)
