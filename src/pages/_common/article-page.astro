@@ -25,9 +25,9 @@ const { cover_photo, title } = article.data;
 ---
 
 <Layout lang={article.data.language}>
-	<main class="mx-auto p-lg max-w-[64rem]">
+	<main class="bg-article mx-auto p-xl max-w-[64rem]">
 		<header class="mb-xl">
-			<Picture src={cover_photo.image} alt={cover_photo.alt} class="object-cover aspect-video" />
+			<Picture src={cover_photo.image} alt={cover_photo.alt} class="mask-b-from-0 object-cover aspect-video" />
 			<h1 class="p-lg text-center">{title}</h1>
 		</header>
 		<article>

@@ -20,11 +20,11 @@
 
 		position: sticky;
 		top: 0;
-		background: --theme(--bg-primary);
+		background: --theme(--color-article);
 		z-index: 10;
 
 		&::before {
-			content: counter(section) ". ";
+			content: counter(section) ". " / "";
 		}
 
 		@media (min-width: 768px) {
@@ -38,7 +38,7 @@
 		margin-bottom: 0px;
 
 		&::before {
-			content: counter(section) "." counter(subsection) ". ";
+			content: counter(section) "." counter(subsection) ". " / "";
 		}
 	}
 
@@ -48,7 +48,7 @@
 		margin-bottom: 0px;
 
 		&::before {
-			content: counter(section) "." counter(subsection) "." counter(subsubsection) ". ";
+			content: counter(section) "." counter(subsection) "." counter(subsubsection) ". " / "";
 		}
 	}
 
@@ -57,15 +57,15 @@
 	}
 
 	article > section > figure > figcaption::before {
-		content: attr(data-figcaption) " " counter(section) "-" counter(figure) ": ";
+		content: attr(data-figcaption) " " counter(section) "-" counter(figure) ": " / "";
 	}
 
 	article > section > section > figure > figcaption::before {
-		content: attr(data-figcaption) " " counter(section) "." counter(subsection) "-" counter(figure) ": ";
+		content: attr(data-figcaption) " " counter(section) "." counter(subsection) "-" counter(figure) ": " / "";
 	}
 
 	article > section > section > section > figure > figcaption::before {
-		content: attr(data-figcaption) " " counter(section) "." counter(subsection) "." counter(subsubsection) "-" counter(figure) ": ";
+		content: attr(data-figcaption) " " counter(section) "." counter(subsection) "." counter(subsubsection) "-" counter(figure) ": " / "";
 	}
 
 	[data-figure] {
@@ -81,7 +81,7 @@
 	}
 
 	[data-picture="loading"]::before {
-		content: '';
+		content: '' / "";
 		position: absolute;
 		inset: 0;
 		backdrop-filter: blur(20px);
