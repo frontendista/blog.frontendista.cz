@@ -31,7 +31,7 @@ const { cover_photo, title, description, authors } = article.data;
 
 	<main class="bg-article mx-auto p-lg lg:p-xl max-w-[64rem]">
 		<header class="mb-xl">
-			<Picture formats={["webp", "avif"]} src={cover_photo.image} alt={cover_photo.alt} class="mask-b-from-0 object-cover aspect-video" />
+			<Picture formats={["webp", "avif"]} src={cover_photo.image} alt={cover_photo.alt} class="mask-y-from-25% object-cover aspect-video" />
 			<h1 class="my-xl">{title}</h1>
 
 			<AuthorCollection {authors} />
