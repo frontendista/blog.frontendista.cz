@@ -5,5 +5,12 @@
 		"link": "https://frontendista.cz",
 		"name": "Pavel Sušický",
 		"title": "Software Engineer"
+	},
+	{
+		"id": "steve",
+		"avatar": "./assets/steve.jpg",
+		"link": "https://minecraft.net",
+		"name": "Minecraft Steve",
+		"title": "Game Character"
 	}
 ]
