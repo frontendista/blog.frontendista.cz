@@ -132,6 +132,6 @@ h3 {
 }
 
 body {
-	@apply text-paragraph antialiased;
+	@apply text-paragraph antialiased lg:p-xl;
 }
 

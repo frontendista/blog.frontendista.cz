@@ -1,6 +1,7 @@
 ---
 import Layout from "@/components/layout.astro";
 import TextLink from "@/components/mdx/text-link.astro";
+import { Seo as SEO } from "astro-seo-meta";
 import { Picture } from "astro:assets";
 import { getEntry, render } from "astro:content";
 import consola from "consola";
@@ -22,10 +23,12 @@ if (article.data.cover_photo.image.width / article.data.cover_photo.image.height
 
 const { Content } = await render(article);
 
-const { cover_photo, title, authors } = article.data;
+const { cover_photo, title, description, authors } = article.data;
 ---
 
 <Layout lang={article.data.language}>
+	<SEO {title} {description} slot="head" />
+
 	<main class="bg-article mx-auto p-lg lg:p-xl max-w-[64rem]">
 		<header class="mb-xl">
 			<Picture formats={["webp", "avif"]} src={cover_photo.image} alt={cover_photo.alt} class="mask-b-from-0 object-cover aspect-video" />
