@@ -87,7 +87,7 @@
 		display: block;
 	}
 
-	[data-picture]::before {
+	[data-picture="loading"]::before {
 		content: '' / "";
 		background: var(--lqip) no-repeat center center / cover;
 		transform: scale(1.05);
