@@ -1,0 +1,66 @@
+---
+import { Picture } from "astro:assets";
+import lqip from "lqip-modern";
+import { join } from "node:path";
+
+export interface Props extends astroHTML.JSX.HTMLAttributes {
+	alt: string;
+	image: ImageMetadata;
+	pictureClass?: string;
+}
+
+const { alt, image, pictureClass, ...attrs } = Astro.props;
+
+let source: string;
+if (import.meta.env.MODE === "development") {
+	source = image.src.replace("/@fs/", "").split("?")[0]!;
+}
+else {
+	const cwd = process.cwd();
+	const location = join(cwd, "dist", image.src);
+	source = location;
+}
+
+const lqip_result = await lqip(source);
+---
+
+<Picture
+	data-image="loading"
+	formats={["avif", "webp"]}
+	src={image}
+	{alt}
+	pictureAttributes={{
+		"data-picture": "loading",
+		"class": pictureClass,
+		"style": {
+			"--lqip": `url(${lqip_result.metadata.dataURIBase64})`
+		}
+	}}
+	{...attrs}
+/>
+
+<script>
+document.querySelectorAll("[data-image]").forEach((element) => {
+	const image = element as HTMLImageElement;
+
+	const handleOnLoad = () => {
+		image.setAttribute("data-image", "");
+
+		const picture = image.closest("picture");
+
+		if (picture) {
+			setTimeout(() => {
+				picture.setAttribute("data-picture", "");
+				picture.style.removeProperty("--lqip");
+			}, 2000);
+		}
+	};
+
+	if (image.complete) {
+		handleOnLoad();
+	}
+	else {
+		image.addEventListener("load", handleOnLoad);
+	}
+});
+</script>

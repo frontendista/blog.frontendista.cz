@@ -82,21 +82,23 @@
 
 	[data-picture] {
 		position: relative;
-		background-image: var(--lqip);
+		isolation: isolate;
 		overflow: hidden;
-
-		@apply block bg-cover;
+		display: block;
 	}
 
-	[data-picture="loading"]::before {
+	[data-picture]::before {
 		content: '' / "";
+		background: var(--lqip) no-repeat center center / cover;
+		transform: scale(1.05);
+		filter: blur(16px);
+		z-index: -1;
 		position: absolute;
 		inset: 0;
-		backdrop-filter: blur(20px);
 	}
 
 	[data-image] {
-		@apply transition-all duration-500;
+		@apply transition-all duration-2000;
 	}
 
 	[data-image="loading"] {
