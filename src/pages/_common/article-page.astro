@@ -30,7 +30,7 @@ const { cover_photo, title, description, authors } = article.data;
 	<SEO {title} {description} slot="head" />
 
 	<main class="bg-article mx-auto p-lg lg:p-xl max-w-[64rem]">
-		<header class="mb-xl">
+		<header class="flex flex-col items-center mb-32">
 			<PictureLqip
 				image={cover_photo.image}
 				alt={cover_photo.alt}
