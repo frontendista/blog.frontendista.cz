@@ -12,7 +12,7 @@ const { authors } = Astro.props;
 const entries = await getEntries(authors);
 ---
 
-<ul class="flex flex-wrap gap-md">
+<ul class="flex md:flex-row flex-col flex-wrap gap-md">
 	{entries.map(entry => (
 		<li>
 			<ArticleAuthor author={entry} />

@@ -2,6 +2,7 @@
 import PictureLqip from "@/article/picture-lqip.astro";
 import Layout from "@/components/layout.astro";
 import TextLink from "@/components/mdx/text-link.astro";
+import { formatDate } from "@/utils/date";
 import { Seo as SEO } from "astro-seo-meta";
 import { getEntry, render } from "astro:content";
 import consola from "consola";
@@ -23,22 +24,22 @@ if (article.data.cover_photo.image.width / article.data.cover_photo.image.height
 
 const { Content } = await render(article);
 
-const { cover_photo, title, description, authors } = article.data;
+const { cover_photo, title, description, authors, published_at, language } = article.data;
 ---
 
 <Layout lang={article.data.language}>
 	<SEO {title} {description} slot="head" />
 
 	<main class="bg-article mx-auto p-lg lg:p-xl max-w-[64rem]">
-		<header class="flex flex-col items-center mb-32">
+		<header class="flex flex-col items-center mb-xl md:mb-32">
 			<PictureLqip
 				image={cover_photo.image}
 				alt={cover_photo.alt}
 				class="object-cover aspect-video"
 				pictureClass="mask-b-from-25%"
 			/>
-			<h1 class="my-xl">{title}</h1>
-
+			<h1 class="my-xl text-center text-balance">{title}</h1>
+			<time datetime={published_at.toISOString()} class="mb-xl">{formatDate(published_at, language)}</time>
 			<AuthorCollection {authors} />
 		</header>
 		<article>
