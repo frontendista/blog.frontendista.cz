@@ -1,0 +1,25 @@
+---
+import { m } from "@/paraglide/messages";
+import Zoom from "react-medium-image-zoom";
+import LQIP from "./lqip.astro";
+
+export interface Props extends astroHTML.JSX.HTMLAttributes {
+	alt: string;
+	caption: string;
+	image: ImageMetadata;
+}
+
+const { alt, image, caption, ...attrs } = Astro.props;
+---
+
+<figure {...attrs}>
+	<Zoom
+		client:visible
+		a11yNameButtonZoom={m["zoom"]()}
+		a11yNameButtonUnzoom={m["unzoom"]()}
+		canSwipeToUnzoom={false}
+	>
+		<LQIP {alt} {image} />
+	</Zoom>
+	<figcaption>{caption}</figcaption>
+</figure>

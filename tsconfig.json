@@ -19,7 +19,10 @@
 			],
 			"@/article/*": [
 				"./data/articles/common/*"
-			]
+			],
+			"@/modules/*": [
+				"./src/modules/*"
+			],
 		},
 	},
 	"include": [

@@ -4,7 +4,7 @@
 	"private": true,
 	"type": "module",
 	"scripts": {
-		"dev": "bunx --bun astro dev",
+		"dev": "astro dev",
 		"build": "run-s _check _build",
 		"build:preview": "run-s _build:preview _preview",
 		"lint": "eslint \"src/**/*.{js,astro,ts,tsx}\"",
