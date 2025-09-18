@@ -25,7 +25,7 @@ const schema = object({
 // 	}
 // }
 
-export const GET: APIRoute = async ({ params }) => {
+export const GET: APIRoute = async () => {
 	const result = await ResultAsync.fromPromise(parseAsync(schema, { url }), e => e);
 
 	if (result.isErr()) {
@@ -34,4 +34,6 @@ export const GET: APIRoute = async ({ params }) => {
 			headers: { "Content-Type": "application/json" }
 		});
 	}
+
+	return new Response("OK");
 };

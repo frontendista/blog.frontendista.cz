@@ -1,11 +1,11 @@
 @layer theme, base, components, utilities;
 
-@import "tailwindcss/theme.css" layer(theme);
+@import "./rmiz.css";
+
 @import "./preflight.css" layer(base);
+@import "tailwindcss/theme.css" layer(theme);
 @import "tailwindcss/utilities.css" layer(utilities);
 
-@import "../pages/_common/article-page.css";
-@import "./rmiz.css";
 
 :root {
 	background: --theme(--bg-primary);
@@ -110,19 +110,7 @@
 	outline: none;
 }
 
-h1 {
-	@apply text-h1;
-}
-
-h2 {
-	@apply text-h2;
-}
-
-h3 {
-	@apply text-h3;
-}
-
 body {
-	@apply text-paragraph antialiased lg:p-xl;
+	@apply antialiased;
 }
 
