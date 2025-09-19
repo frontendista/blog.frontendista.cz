@@ -1,0 +1,70 @@
+---
+import { Link2 } from "lucide-react";
+
+type HeadingLevels = "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
+
+export interface Props extends astroHTML.JSX.HTMLAttributes {
+	/**
+	 * @default "h2"
+	 *
+	 * Sets the HTML tag used for the heading.
+	 */
+	as?: HeadingLevels;
+	/**
+	 * @default to {size} prop
+	 *
+	 * Sets the visual size of the heading, independent of the HTML tag used.
+	 */
+	size?: HeadingLevels;
+}
+
+const { as: HeadingTag = "h2", size = Astro.props.as, ...attrs } = Astro.props;
+---
+
+<HeadingTag {...attrs} data-size={size}>
+	{attrs.id
+		? (
+				<a href={`#${attrs.id}`}>
+					<slot />
+					<Link2 className="size-[0.75em]" strokeWidth={3} />
+				</a>
+			)
+		: <slot />}
+</HeadingTag>
+
+<style lang="scss">
+	// NOTE: https://baseline.is/tools/type-scale-generator, base size: 20, scale ratio: 1.25
+	a {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.5ch;
+
+		text-decoration: underline;
+		text-decoration-color: #222;
+
+		&:hover, &:focus-visible{
+			text-decoration-color: #fff;
+
+			& > svg {
+				color: #fff;
+			}
+		}
+
+		& > svg {
+			color: #222;
+			transform: rotate(-45deg);
+		}
+	}
+
+	[data-size="h1"] {
+		font-size: 3.81rem;
+	}
+
+	[data-size="h2"] {
+		font-size: 3.05rem;
+	}
+
+	[data-size="h3"] {
+		font-size: 2.44rem;
+	}
+</style>

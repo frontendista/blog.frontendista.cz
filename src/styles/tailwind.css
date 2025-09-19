@@ -10,43 +10,21 @@
 :root {
 	background: --theme(--bg-primary);
 	color: oklch(86.9% 0.005 56.366);
-
 	scrollbar-color: #333 --theme(--bg-primary);
 
-	--h1: 2.2875rem;
-	--h2: 1.83rem;
-	--h3: 1.4625rem;
-	--paragraph: 1rem;
-	--text-base: 0.75rem;
-	--text-tiny: 0.6rem;
-	--text-small: 0.48rem;
+	/* TODO: Implement accessibility */
+	scroll-behavior: smooth;
 
-	@media (min-width: 768px) {
-		/* --text-7xl: 5.96rem; */
-		/* --text-6xl: 4.77rem; */
-		/* --text-5xl: 3.81rem; */
-		--h1: 3.05rem;
-		--h2: 2.44rem;
-		--h3: 1.95rem;
-		/* --text-xl: 1.56rem; */
-		--paragraph: 1.25rem;
-		--text-base: 1rem;
-		--text-tiny: 0.8rem;
-		--text-small: 0.64rem;
-	}
+	@media (min-width: --theme(--breakpoint-md)) {}
 }
 
-@theme inline {
-	--text-small: var(--text-small);
-	--text-paragraph: var(--paragraph);
-	--text-h3: var(--h3);
-	--text-h2: var(--h2);
-	--text-h1: var(--h1);
-}
+@theme inline {}
 
 @theme {
 	--font-atkinson-mono: "Atkinson Mono", "monospace";
 	--font-atkinson: "Atkinson", "sans-serif";
+
+	--text-base: 1.25rem;
 
 	--size-text: 1em;
 
@@ -57,6 +35,7 @@
 	--spacing-lg: 1rem;
 	--spacing-2lg: 1.25rem;
 	--spacing-xl: 2rem;
+	--spacing-2xl: 3rem;
 
 	--bg-primary: #09080d;
 	--color-article: #000;
@@ -111,6 +90,6 @@
 }
 
 body {
-	@apply antialiased;
+	@apply antialiased text-base;
 }
 

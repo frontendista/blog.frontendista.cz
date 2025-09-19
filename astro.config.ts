@@ -8,6 +8,7 @@ import { defineConfig } from "astro/config";
 import { consola } from "consola";
 import sectionize from "remark-sectionize";
 import { PORTS, SITES, SUPPORTED_ENVIRONMENTS, locales, localesCodes } from "./config";
+import { rehypeHeading } from "./src/utils/rehype";
 
 const currentEnvironment = process.env.NODE_ENV as typeof SUPPORTED_ENVIRONMENTS[number];
 
@@ -32,7 +33,7 @@ export default defineConfig({
 		react(),
 		mdx({
 			remarkPlugins: [sectionize],
-			rehypePlugins: [],
+			rehypePlugins: [rehypeHeading],
 			recmaPlugins: [],
 			optimize: true
 		}),

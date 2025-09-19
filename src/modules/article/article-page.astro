@@ -3,6 +3,8 @@ import Layout from "@/components/layout.astro";
 import { Seo as SEO } from "astro-seo-meta";
 import { getEntry, render } from "astro:content";
 import consola from "consola";
+import Heading from "./components/heading.astro";
+import Section from "./components/section.astro";
 
 export interface Props {
 	slug: string;
@@ -33,6 +35,18 @@ const {
 <Layout lang={article.data.language}>
 	<SEO {title} {description} slot="head" />
 	<main class="lg:ml-[38.2%] max-w-[67.5rem] lg:-translate-x-[38.2%]">
-		<Content />
+		<article class="space-y-2xl">
+			<Content
+				components={{
+					section: Section,
+					h1: Heading,
+					h2: Heading,
+					h3: Heading,
+					h4: Heading,
+					h5: Heading,
+					h6: Heading
+				}}
+			/>
+		</article>
 	</main>
 </Layout>
