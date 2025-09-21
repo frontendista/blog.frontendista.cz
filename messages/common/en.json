@@ -2,5 +2,6 @@
 	"$schema": "https://inlang.com/schema/inlang-message-format",
 	"figure": "Figure",
 	"zoom": "Expand image",
-	"unzoom": "Minimize image"
+	"unzoom": "Minimize image",
+	"Contents": "Contents"
 }

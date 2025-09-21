@@ -1,0 +1,26 @@
+---
+import { m } from "@/paraglide/messages";
+import type { MarkdownHeading } from "astro";
+import Heading from "./components/heading.astro";
+
+export interface Props {
+	headings: MarkdownHeading[];
+}
+
+const { headings } = Astro.props;
+---
+
+<aside class="ml-xl">
+	<nav aria-labelledby="toc" class="top-xl sticky bg-[#222] p-xl rounded-sm w-[32rem]">
+		<Heading id="toc" size="h4" class="mb-md" allowLink={false}>{m["Contents"]}</Heading>
+		<ul>
+			{headings.map(({ text, depth, slug }) => (
+				<li>
+					<a href={`#${slug}`} style={{ paddingLeft: `${(depth - 2) * 1.5}rem` }} class="block">
+						{text}
+					</a>
+				</li>
+			))}
+		</ul>
+	</nav>
+</aside>

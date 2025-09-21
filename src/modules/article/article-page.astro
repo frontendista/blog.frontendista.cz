@@ -3,8 +3,7 @@ import Layout from "@/components/layout.astro";
 import { Seo as SEO } from "astro-seo-meta";
 import { getEntry, render } from "astro:content";
 import consola from "consola";
-import Heading from "./components/heading.astro";
-import Section from "./components/section.astro";
+import ArticleTOC from "./article-toc.astro";
 
 export interface Props {
 	slug: string;
@@ -20,7 +19,7 @@ if (article.data.cover_photo.image.width / article.data.cover_photo.image.height
 	consola.warn(`Article ${article.id} has a cover photo with an aspect ratio of ${article.data.cover_photo.image.width / article.data.cover_photo.image.height}. It should be 16:9.`);
 }
 
-const { Content } = await render(article);
+const { Content, headings } = await render(article);
 
 const {
 	// cover_photo,
@@ -34,19 +33,11 @@ const {
 
 <Layout lang={article.data.language}>
 	<SEO {title} {description} slot="head" />
-	<main class="lg:ml-[38.2%] max-w-[67.5rem] lg:-translate-x-[38.2%]">
-		<article class="space-y-2xl">
-			<Content
-				components={{
-					section: Section,
-					h1: Heading,
-					h2: Heading,
-					h3: Heading,
-					h4: Heading,
-					h5: Heading,
-					h6: Heading
-				}}
-			/>
+	<main class="grid grid-cols-[calc(38.2%-33.75rem)_auto_1fr] p-xl">
+		<span />
+		<article class="space-y-2xl max-w-[67.5rem]">
+			<Content />
 		</article>
+		<ArticleTOC {headings} />
 	</main>
 </Layout>

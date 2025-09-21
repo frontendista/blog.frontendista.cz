@@ -19,7 +19,19 @@ slug: test
 ---
 
 import Figure from "@/modules/article/components/figure.astro";
+import Heading from "@/modules/article/components/heading.astro";
+import Section from "@/modules/article/components/section.astro";
 import graph from "./assets/graph.png";
+
+export const components = {
+	h1: Heading,
+	h2: Heading,
+	h3: Heading,
+	h4: Heading,
+	h5: Heading,
+	h6: Heading,
+	section: Section
+}
 
 ## Some very
 

@@ -5,24 +5,30 @@ type HeadingLevels = "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
 
 export interface Props extends astroHTML.JSX.HTMLAttributes {
 	/**
-	 * @default "h2"
-	 *
 	 * Sets the HTML tag used for the heading.
+	 * @default "h2"
 	 */
 	as?: HeadingLevels;
 	/**
-	 * @default to {size} prop
-	 *
 	 * Sets the visual size of the heading, independent of the HTML tag used.
+	 *
+	 * @default to {size} prop
 	 */
 	size?: HeadingLevels;
+	/**
+	 * Whether to render link icon if `id` attribute is present.
+	 *
+	 * @default true
+	 */
+	allowLink?: boolean;
 }
 
-const { as: HeadingTag = "h2", size = Astro.props.as, ...attrs } = Astro.props;
+const { as: HeadingTag = "h2", allowLink = true, ...rest } = Astro.props;
+const { size = HeadingTag, ...attrs } = rest;
 ---
 
 <HeadingTag {...attrs} data-size={size}>
-	{attrs.id
+	{attrs.id && allowLink
 		? (
 				<a href={`#${attrs.id}`}>
 					<slot />
@@ -66,5 +72,9 @@ const { as: HeadingTag = "h2", size = Astro.props.as, ...attrs } = Astro.props;
 
 	[data-size="h3"] {
 		font-size: 2.44rem;
+	}
+
+	[data-size="h4"] {
+		font-size: 1.95rem;
 	}
 </style>
